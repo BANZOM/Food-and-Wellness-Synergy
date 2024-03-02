@@ -64,21 +64,15 @@ function removeFromLocalStorage(item) {
 }
 
 
-// sending data to backend to falsk app.py
-function sendDataToBackend() {
-  const items = JSON.parse(localStorage.getItem('shoppingList')) || [];
-  fetch('/submit_items', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ items: items })
-  })
-    .then(response => response.text())
-    .then(data => {
-      console.log(data); // Print response from backend in console
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
-}
+// shifting to result.html
+document.getElementById('submit-button').addEventListener('click', function() {
+  // Get the value from local storage
+  var items = JSON.parse(localStorage.getItem('shoppingList')) || [];
+  
+  // Join the items with commas
+  var textAreaValue = items.join(', ');
+  
+  // Display the value in the textarea
+  document.getElementById('text-area').value = textAreaValue;
+});
+
