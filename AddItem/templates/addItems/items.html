@@ -50,7 +50,11 @@
       });
     }
 
-    sendDataToFlask();
+    // it will sent data to flask on click of submit buttons
+    document.getElementById('submit-button').addEventListener('click',()=>{
+      sendDataToFlask();
+    })
+    // sendDataToFlask();
   </script>
 </body>
 
