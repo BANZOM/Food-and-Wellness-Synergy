@@ -15,17 +15,17 @@
 <body>
 
   <!-- container here -->
+
   <div class="container">
     <img src="../../images/items.png" alt="items">
-    <input type="text" id="input-field" placeholder="Enter Items">
-    <button id="add-button">Add Items</button>
-    <ul id="shopping-list">
-    </ul>
-    <button id="submit-items">Submit Items</button>
+    <form id="item-form" action="/process" method="post">
+      <label for="user_input">Enter some text:</label><br>
+      <input type="text" id="input-field" placeholder="Enter Items">
+      <button type="button" id="add-button">Add Items</button>
+      <ul id="shopping-list"></ul>
+      <button type="submit" id="submit-items">Submit Items</button>
+    </form>
   </div>
-
-  <!-- <script src="../../script/addItems.js" type="module"></script> -->
-
 
 
 
@@ -132,6 +132,7 @@
           console.error('Error:', error);
         });
     }
+
 
   </script>
 
