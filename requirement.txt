@@ -2,3 +2,4 @@ Flask
 python-dotenv
 pillow
 google-generativeai
+Flask-Cors

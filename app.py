@@ -1,34 +1,16 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, jsonify
 import model
+from flask_cors import CORS
 
 app = Flask(__name__)
-UPLOAD_FOLDER = 'dump/images'
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+CORS(app)
 
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-@app.route('/process_text', methods=['POST', 'GET'])
-def process():
+@app.route('/get_recipe_from_text', methods=['POST'])
+def get_recipe():
     if request.method == 'POST':
-        user_input = request.form['user_input']
-        result = model.dummy_process(user_input)
-        return render_template('result.html', user_input=user_input, result=result)
-    else:
-        return render_template('process.html')
-
-@app.route('/process_image', methods=['POST', 'GET'])
-def process_image():
-    if request.method == 'POST':
-        file = request.files['file']
-        if file and model.allowed_file(file.filename):
-            filename = file.filename
-            file.save(UPLOAD_FOLDER + '/' + filename)
-            result = model.dummy_process(filename)
-            return render_template('result.html', user_input=filename, result=result)
-    else:
-        return render_template('image_upload.html')
+        text = request.form['input_text']
+        processed_text = model.get_recipe(text)
+        return jsonify({'processed_text': processed_text})
 
 if __name__ == '__main__':
-    app.run("0.0.0.0",5000,debug=True)
+    app.run("0.0.0.0",5002,debug=True)
