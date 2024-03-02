@@ -65,14 +65,42 @@ function removeFromLocalStorage(item) {
 
 
 // shifting to result.html
-document.getElementById('submit-button').addEventListener('click', function() {
+document.getElementById('submit-button').addEventListener('click', function () {
   // Get the value from local storage
   var items = JSON.parse(localStorage.getItem('shoppingList')) || [];
-  
+
   // Join the items with commas
   var textAreaValue = items.join(', ');
-  
+
   // Display the value in the textarea
   document.getElementById('text-area').value = textAreaValue;
 });
 
+
+
+function submitForm() {
+  event.preventDefault();
+  var userInput = document.getElementById('userInput').value;
+  if (userInput.trim() === '') {
+    alert('Please enter a message.');
+    return;
+  }
+
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'http://localhost:5001/process_input', true);
+
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        var response = JSON.parse(xhr.responseText);
+        var processedDiv = document.getElementById('processedText');
+        processedDiv.innerHTML = response.processed_text;
+      } else {
+        console.error('Error:', xhr.status);
+      }
+    }
+  };
+  xhr.send('userInput=' + encodeURIComponent(userInput));
+}
