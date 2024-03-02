@@ -28,31 +28,18 @@
   </div>
 
   <script src="../../static/addItems.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
   <script>
-    // // Function to fetch items from Flask route
-    // function fetchItems() {
-    //   fetch('/get_items')
-    //     .then(response => response.json())
-    //     .then(data => {
-    //       // Update the text area with the fetched items
-    //       document.getElementById('text-area').value = data.items.join('\n');
-    //     })
-    //     .catch(error => console.error('Error fetching items:', error));
-    // }
-
-    // // Call the fetchItems function when the page loads
-    // window.addEventListener('load', fetchItems);
-
-
     function sendDataToFlask() {
       // Get items from local storage
       var items = JSON.parse(localStorage.getItem('shoppingList')) || [];
       // Send data to Flask server
       $.ajax({
         url: '/get_items',
-        type: 'POST',
+        type: 'GET',  // Change request type to GET
         contentType: 'application/json',
-        data: JSON.stringify({ items: items }),
+        data: { items: JSON.stringify(items) },  // Send items as query parameter
         success: function (response) {
           console.log('Data sent successfully:', response);
           // Redirect to result page or do something else
@@ -62,6 +49,8 @@
         }
       });
     }
+
+    sendDataToFlask();
   </script>
 </body>
 

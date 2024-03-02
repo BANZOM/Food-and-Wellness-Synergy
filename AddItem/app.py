@@ -1,4 +1,5 @@
 from flask import Flask, render_template, jsonify, request
+import json  # Import the json module
 
 app = Flask(__name__, static_folder='static')
 
@@ -11,10 +12,17 @@ def index():
 
 @app.route('/get_items', methods=['GET'])
 def get_items():
-    data = request.json
-    items = data.get('items', [])
+    items = json.loads(request.args.get('items'))  # Retrieve items from query parameters
+    print('Received items:', items)
     return jsonify({'items': items})
 
+
+# @app.route('/get_items', methods=['GET'])
+# def get_items():
+#     data = request.json
+#     items = data.get('items', [])
+#     print('Received items:', items)
+#     return jsonify({'items': items})
 
 if __name__ == '__main__':
     app.run(debug=True)
