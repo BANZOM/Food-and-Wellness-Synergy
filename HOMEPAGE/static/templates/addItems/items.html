@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Your Ingredients</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/styleItems.css">
+  <link rel="shortcut icon" href="./../image/items.png" type="image/x-icon">
+</head>
+
+<body>
+
+  <!-- container here -->
+  <div class="container">
+    <img src="../../image/items.png" alt="Items List">
+    <input type="text" id="input-field" placeholder="Enter Your Items Here">
+    <button id="add-button">Enter Items</button>
+    <ul id="shopping-list">
+    </ul>
+
+    <button id="submit-button" type="submit" style="display: block; width: 100%;">Submit</button>
+    <textarea id="text-area" rows="10" cols="50" readonly></textarea>
+  </div>
+
+  <script src="../../js/addItems.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script>
+    function sendDataToFlask() {
+      // Get items from local storage
+      var items = JSON.parse(localStorage.getItem('shoppingList')) || [];
+      // Send data to Flask server
+      $.ajax({
+        url: '/get_items',
+        type: 'GET',  // Change request type to GET
+        contentType: 'application/json',
+        data: { items: JSON.stringify(items) },  // Send items as query parameter
+        success: function (response) {
+          console.log('Data sent successfully:', response);
+          // Redirect to result page or do something else
+        },
+        error: function (xhr, status, error) {
+          console.error('Error sending data:', error);
+        }
+      });
+    }
+
+    // it will sent data to flask on click of submit buttons
+    document.getElementById('submit-button').addEventListener('click',()=>{
+      sendDataToFlask();
+    })
+  </script>
+</body>
+
+</html>
