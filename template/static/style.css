@@ -41,7 +41,7 @@ header nav li {
 }
 
 .hero {
-  background-image: url("https://source.unsplash.com/random");
+  background-image: url("../image/img2.png");
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -111,4 +111,45 @@ header nav li {
 
 .header a:hover {
   color: #ccc;
+}
+
+.sections {
+  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(100,43,115,1) 0%, rgba(4,0,4,1) 90% );
+  height: 40vh;
+  width: 90vw;
+  border-radius: 30px;
+  margin: 2vw;
+  
+ box-shadow: 1px 1px 10px 10px rgba(0, 0, 0, 0.5);
+  
+  
+}
+
+.right{
+  padding-right: 5vw;
+}
+
+.left{
+  padding: 2vh;
+}
+
+.left h2{
+  color: white;
+}
+
+.buttonfunction{
+  padding: 10px 20px;
+  background-color : white ;
+  border-radius: 10px;
+  border: none;
+}
+
+#new{
+  padding-left: 80px;
+}
+
+#list{
+  margin: 20px;
+  color: white;
+
 }
