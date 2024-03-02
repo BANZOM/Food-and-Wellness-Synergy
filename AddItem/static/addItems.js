@@ -3,14 +3,14 @@ const inputField = document.getElementById('input-field');
 const ulEl = document.getElementById('shopping-list');
 
 // Fetch items from local storage when the page loads
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
   const itemsFromLocalStorage = JSON.parse(localStorage.getItem('shoppingList')) || [];
   itemsFromLocalStorage.forEach(item => appendListItems(item));
 });
 
 add_button.addEventListener("click", addItem);
 
-inputField.addEventListener("keypress", function(event) {
+inputField.addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
     addItem();
   }
@@ -30,7 +30,7 @@ function addItem() {
   }
 }
 
-function clearShoppingListEl(){
+function clearShoppingListEl() {
   ulEl.innerHTML = "";
 }
 
@@ -41,8 +41,8 @@ function clearInputFieldEl() {
 function appendListItems(item) {
   let newEl = document.createElement("li");
   newEl.textContent = item;
-  
-  newEl.addEventListener("click",function(){
+
+  newEl.addEventListener("click", function () {
     newEl.remove();
     // Remove item from local storage when it's removed from the list
     removeFromLocalStorage(item);
@@ -61,4 +61,24 @@ function removeFromLocalStorage(item) {
   const itemsFromLocalStorage = JSON.parse(localStorage.getItem('shoppingList')) || [];
   const updatedItems = itemsFromLocalStorage.filter(i => i !== item);
   localStorage.setItem('shoppingList', JSON.stringify(updatedItems));
+}
+
+
+// sending data to backend to falsk app.py
+function sendDataToBackend() {
+  const items = JSON.parse(localStorage.getItem('shoppingList')) || [];
+  fetch('/submit_items', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ items: items })
+  })
+    .then(response => response.text())
+    .then(data => {
+      console.log(data); // Print response from backend in console
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
 }
