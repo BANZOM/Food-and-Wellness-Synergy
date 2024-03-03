@@ -4,9 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <!-- <link rel="stylesheet" href="../static/css/style.css"> -->
+  <!-- <link rel="stylesheet" href="../template/static/style.css"> -->
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
 </head>
 <body>
   <div class="header">
@@ -22,17 +21,32 @@
   
   <section class="hero">
     <div class="container">
-      <h2>Add Products</h2>
+      <h2 style="
+      background: -webkit-linear-gradient(#eee, #27f127);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; font-weight: lighter; font-size: 6rem;
+    letter-spacing: -.02em;
+    line-height: 6rem;">Add Products</h2>
+    <br>
       <h3>Get Healthy and nourished food suggestion</h3>
-      <h1>No More Searching</h1>
-      <p>Get everything in one place , from healthy recipe suggestions to step by step to create it</p>
-      <a href="#" class="button">Enter Your Details</a>
+      <br>
+      <h1 style="background: -webkit-linear-gradient(#eee, #a90df0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; font-weight: lighter; font-size: 6rem;
+    letter-spacing: -.02em;
+    line-height: 6rem;">No More Searching</h1>
+      <p style="margin-left: 80px;">Get everything in one place</p>
+      <p style="margin-left: 70px; font-weight: bold; background: -webkit-linear-gradient(#eee, #e5fa05);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent ; font-size: 2.5rem;
+    letter-spacing: -.02em"> suggestions you step by step to make the best dish according to your health status</p>
+      <button class="button"><a href="../template/Form/index.html" >Enter Your Details</a></button>
     </div>
   </section>
 
 
-<center>
 
+<div class="Main"></div>
   <section class="layout">
    
 
@@ -41,7 +55,7 @@
    
     <div class="sections" style="display: flex; flex-direction: row;  justify-content: space-around;">
       <div  class="left"> 
-        <h2>Add Products Get Recommanded </h2>
+        <h2>Add Products Get The Prefect Dish</h2>
         <p>
           <ol id="list">
             <li>
@@ -80,7 +94,7 @@
             </li>
           </ol>
         </p>
-         <button class="buttonfunction"><a href="/page2" target="_blank">try it now</a></button>
+        <button class="buttonfunction"><a href="/page2" target="_blank">try it now</a></button>
       </div>
       <img src="../static/image/img4.png" class="right" alt="">
     </i></div>
@@ -105,9 +119,10 @@
             </li>
           </ol>
         </p>
-         <button class="buttonfunction"><a href="/page3" target="_blank">try it now</a></button>
+        <button class="buttonfunction"><a href="/page3" target="_blank">try it now</a></button>
       </div>
-      <img src="../static/image/img1.jpg" class="right" alt="">
+      <img src="../static/image/eye-tracking-technology-abstract-concept-illustration_335657-3697.avif" class="right" alt="">
+      <!-- <img src="../template/image/eye-tracking-technology-abstract-concept-illustration_335657-3697.avif" class="right" alt=""> -->
     </i></div>
    
   </section>
@@ -115,15 +130,12 @@
 
    
 
-</center>
+
   
   <footer>
     <center>
     <p>All Right Reserved @2023</p>
   </center>
   </footer>
-
-
-  <script src="static/js/script.js"></script>
 </body>
 </html>

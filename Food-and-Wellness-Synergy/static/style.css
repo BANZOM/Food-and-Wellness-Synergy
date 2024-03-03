@@ -41,7 +41,7 @@ header nav li {
 }
 
 .hero {
-  background-image: url("../static/image/img2.png");
+  background-image: url("../static/image/wp5314854.webp");
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -121,10 +121,15 @@ header nav li {
   width: 90vw;
   border-radius: 30px;
   margin: 2vw;
+  margin-left: 80px;
+  transition: transform 0.3s ease;
   
- box-shadow: 1px 1px 10px 10px rgba(0, 0, 0, 0.5);
+ box-shadow: 1px 1px 50px 10px rgba(0, 0, 0, 0.5);
   
   
+}
+.sections:hover{
+  transform: scale(1.05);
 }
 
 .right{
@@ -154,4 +159,18 @@ header nav li {
   margin: 70px;
   color: white;
 
+}
+
+.Main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+button{
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 50px;
+  border: none;
 }
