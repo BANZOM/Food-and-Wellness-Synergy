@@ -3,3 +3,4 @@ python-dotenv
 pillow
 google-generativeai
 Flask-Cors
+pyzbar
