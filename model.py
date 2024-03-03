@@ -14,25 +14,34 @@ model = genai.GenerativeModel('models/gemini-1.0-pro-latest')
 
 def custom_prompt(item):
     prompt = '''You are a Top Known Chef who knows variety of special dishes in India.
-                When user give items as input. You tell user What is the best top 3 meal recipe made from {item}? 
+                When user give items as input. You tell user What is the best meal recipe made for {item}? 
                 Include atleast one other extra ingredient. So to increase sale of that extra ingredient.
-                Output should be html formatted. only show the body of the html. without printing body tag.
+                Output should be in body format. 
                 Output Format: 
-                Give Name of Meal (in heading tags)
-                Preparation Time (in italic)
-                Cooking Time (in italic)
-                Ingredients (in bullet points)
-                Directions (in numbered list)
-                Nutrition   (in table)
-                Servings    (in bold)
+                Give Name of Meal
+                Preparation Time
+                Cooking Time
+                Ingredients
+                Directions
+                Nutrition
+                Servings
             '''.format(item=item)
     return prompt
 
-def get_recipe(item,):
+def get_generation_config():
+    return genai.GenerationConfig(
+        temperature=0.3,
+        top_p=1.0,
+    )
+
+def get_recipe(item):
+    print("function triggered")
     prompt = custom_prompt(item)
-    return model.generate_content(prompt).text
+    response = model.generate_content(prompt, generation_config=get_generation_config())
+    print(response.text)
+    return response.text
 
 if __name__ == '__main__':
-    item = 'milk'
+    item = 'milk,apple'
     print(get_recipe(item))
     pass
