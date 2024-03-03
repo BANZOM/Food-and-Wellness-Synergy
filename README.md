@@ -11,6 +11,7 @@
 5. [Dependencies](#Dependencies)
 6. [Team Members](#team)
 7. [License](#license)
+7. [Refrences](#refrences)
 
 ## Installation
 Explain how users can install your project. Include any dependencies that need to be installed and the steps required to set up the environment.
@@ -80,3 +81,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
+
+## Refrences
+
+Here are some of the Refrences
+
+[Vertex AI](https://cloud.google.com/vertex-ai?hl=en)
+
+[Google Blog - Google Gemini](https://blog.google/technology/ai/google-gemini-ai/)
