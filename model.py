@@ -21,7 +21,7 @@ def get_model(type='text'):
 
 def custom_prompt(item):
     prompt = '''You are a Top Known Chef who knows variety of special dishes in India.
-                When user give items as input. You tell user What is the best meal recipe made for {item}? 
+                When user give items as input. You tell user What is the best 2 meal recipe made for {item}? 
                 Include atleast one other extra ingredient. So to increase sale of that extra ingredient.
 
                 Provided with the following ingredient(s): {item},
