@@ -63,21 +63,21 @@
 <body>
   <div id="uploadForm">
     <h2>QR Code Scanner</h2>
-    <form method="POST" action="/scan_qr_code" enctype="multipart/form-data">
+    <form method="POST" action="/submit/page2" enctype="multipart/form-data">
       <input type="file" name="image" accept="image/*"><br>
       <button type="submit">Scan QR Code</button>
     </form>
     <div id="result"></div>
   </div>
 
-  <script>
+  <!-- <script>
     $(document).ready(function () {
       $('#uploadForm form').submit(function (event) {
         event.preventDefault(); // Prevent default form submission
 
         var formData = new FormData($(this)[0]); // Create form data object
         $.ajax({
-          url: '/scan_qr_code', // Flask route URL
+          url: '/submit2', // Flask route URL
           type: 'POST',
           data: formData,
           processData: false, // Prevent jQuery from automatically processing the data
@@ -91,7 +91,7 @@
         });
       });
     });
-  </script>
+  </script> -->
 </body>
 
 </html>
