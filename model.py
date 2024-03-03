@@ -1,4 +1,3 @@
-from flask import Flask, request, jsonify
 import google.generativeai as genai
 import os
 from dotenv import load_dotenv
@@ -6,6 +5,7 @@ from dotenv import load_dotenv
 import io
 import base64
 from PIL import Image
+from pyzbar.pyzbar import decode
 
 load_dotenv()
 
@@ -68,8 +68,34 @@ def get_recipe_from_image(image):
     response = model.generate_content([prompt, {'inline_data': image_blob}], generation_config=get_generation_config())
     return response.text
 
+def read_qr_code(file_path):
+    try:
+        with open(file_path, 'rb') as image_file:
+            image = Image.open(image_file)
+            decoded_objects = decode(image)
+
+            if decoded_objects:
+                # for obj in decoded_objects:
+                #     print(f"Detected QR code containing: {obj.data.decode('utf-8')}")
+                return decoded_objects[0].data.decode('utf-8')  # Return the decoded data
+            else:
+                print("No QR code found in the image.")
+                return None
+    except Exception as e:
+        print(f"Error: {e}")
+        return None
+    
+def get_recipe_by_qr_scan(qr_code):
+    print("function triggered")
+    item = read_qr_code(qr_code)
+    if item:
+        return get_recipe(item)
+    else:
+        return "No QR code found in the image."
+    
 if __name__ == '__main__':
     item = 'milk,apple'
     # print(get_recipe(item))
-    print(get_recipe_from_image('templates/dump/images/kurkure&biscuit.png'))
+    # print(get_recipe_from_image('templates/dump/images/kurkure&biscuit.png'))
+    # print(get_recipe_by_qr_scan('templates/dump/images/eggsQR.png'))
     pass
