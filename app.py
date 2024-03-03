@@ -67,7 +67,10 @@ def submit3():
         image_file = request.files['image']
         # Save the image file or process it as needed
         image_file.save('dump/uploaded_image.jpg')
-        return "Image uploaded successfully!"
+        if image_file:
+            recipe = model.get_recipe_from_image('dump/uploaded_image.jpg')
+            return recipe
+        return "Unable to process the image. Please try again."
     else:
         return "No image uploaded!"
 if __name__ == '__main__':
