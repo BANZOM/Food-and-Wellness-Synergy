@@ -3,14 +3,24 @@ import google.generativeai as genai
 import os
 from dotenv import load_dotenv
 
+import io
+import base64
+from PIL import Image
+
 load_dotenv()
 
 genai.configure(api_key=os.getenv('API_KEY'))
 
-# for model in genai.list_models():
-#     print(model)
+for model in genai.list_models():
+    print(model)
 
 model = genai.GenerativeModel('models/gemini-1.0-pro-latest')
+
+def get_model(type='text'):
+    if type == 'text':
+        return genai.GenerativeModel('models/gemini-1.0-pro-latest')
+    else:
+        return genai.GenerativeModel('models/gemini-1.0-pro-vision-latest')
 
 def custom_prompt(item):
     prompt = '''You are a Top Known Chef who knows variety of special dishes in India.
@@ -41,7 +51,16 @@ def get_recipe(item):
     print(response.text)
     return response.text
 
+def get_recipe_from_image(image):
+    print("function triggered")
+    model = get_model(type='image')
+    image = Image.open(image)
+    bytearray = io.BytesIO()
+    image.save(bytearray, format=image.format)
+    response = model.generate_content(image, generation_config=get_generation_config())
+    return response.text
+
 if __name__ == '__main__':
     item = 'milk,apple'
-    print(get_recipe(item))
+    # print(get_recipe(item))
     pass
