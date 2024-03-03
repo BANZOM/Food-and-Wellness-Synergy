@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Scan | Food and Wellness Synergy</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #uploadForm {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    input[type="file"] {
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    #result {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="uploadForm">
+    <h2>QR Code Scanner</h2>
+    <form method="POST" action="/submit/page2" enctype="multipart/form-data">
+      <input type="file" name="image" accept="image/*"><br>
+      <button type="submit">Scan QR Code</button>
+    </form>
+    <div id="result"></div>
+  </div>
+
+  <!-- <script>
+    $(document).ready(function () {
+      $('#uploadForm form').submit(function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        var formData = new FormData($(this)[0]); // Create form data object
+        $.ajax({
+          url: '/submit2', // Flask route URL
+          type: 'POST',
+          data: formData,
+          processData: false, // Prevent jQuery from automatically processing the data
+          contentType: false, // Prevent jQuery from automatically setting content type
+          success: function (response) {
+            $('#result').text(response.qr_data);
+          },
+          error: function (error) {
+            console.log(error);
+          }
+        });
+      });
+    });
+  </script> -->
+</body>
+
+</html>
