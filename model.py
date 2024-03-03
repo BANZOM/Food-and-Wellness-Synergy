@@ -26,7 +26,7 @@ def custom_prompt(item):
 
                 Provided with the following ingredient(s): {item},
 
-                Output Format in HTML tags including the following details starts with h2 tag:
+                Output Format in HTML tags only including the following details starts with h2 tag:
                     Name of Meal: [Enter Name of the Dish]
                     Preparation Time: [Enter Preparation Time]
                     Cooking Time: [Enter Cooking Time]

@@ -34,7 +34,8 @@ def submit1():
 
     recipe = model.get_recipe(processed_inputs)
     # print("Input values:", processed_inputs)
-    return render_template('Result1.html', processed_inputs=recipe)
+    # return render_template('Result1.html', processed_inputs=recipe)
+    return recipe
 
 @app.route("/page2")
 def page2():
@@ -42,17 +43,18 @@ def page2():
 
 @app.route('/submit/page2', methods=['POST'])
 def submit2():
-  # Get the uploaded file
-    file = request.files['image']
-
-    # Read the file and decode the QR code
-    # qr_text = decode(Image.open(file))
-
-    # Print the decoded text
-    print("Decoded QR code:", file)
-
-    # Return a response (you can customize this as needed)
-    return {'qr_data': "file"}
+    if 'image' in request.files:
+        qr = request.files['image']
+        # Save the image file or process it as needed
+        qr.save('dump/qr.jpg')
+        qr_data = model.read_qr_code('dump/qr.jpg')
+        if qr_data:
+            recipe = model.get_recipe(qr_data)
+            return recipe
+        else:
+            return "No QR code found in the image."
+    else:
+        return "No image uploaded!"
     
 
 @app.route("/page3")
