@@ -5,11 +5,11 @@
 
 ## Table of Contents
 1. [Installation](#installation)
-2. [Usage](#usage)
-3. [Dependencies](#dependencies)
-4. [Configuration](#configuration)
-5. [Running the App](#running-the-app)
-6. [Contributing](#contributing)
+2. [Setup Environment Variables](#SetupEnvironmentVariables)
+3. [Running the App](#RunningtheApp)
+4. [Usage](#usuage)
+5. [Dependencies](#Dependencies)
+6. [Team Members](#team)
 7. [License](#license)
 
 ## Installation
@@ -18,13 +18,13 @@ Explain how users can install your project. Include any dependencies that need t
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/your-project.git
+git clone https://github.com/BANZOM/Food-and-Wellness-Synergy
 
 # Change into the project directory
-cd your-project
+cd Food-and-Wellness-Synergy
 
 # Install dependencies (if any)
-pip install -r requirements.txt
+pip install -r requirement.txt
 
 ```
 
@@ -41,27 +41,11 @@ python app.py
 ```
 
 ## Usage
-Explain how to use your project here. Include any configuration settings, command-line options, or usage examples.
+After starting the flask app, you can directly use the website as usual websites.
 
 ## Dependencies
-List the dependencies required to run your project. You can include a `requirements.txt` file with the project, or specify them directly in the README.
+The dependencies required to run your project.
 
-## Contributing
-Thank you for considering contributing to Food & Wellness Synergy! Contributions are welcomed and encouraged. You can contribute to the project in the following ways:
-
-Fork the Repository: Fork the repository to your own GitHub account and create a new branch for your changes.
-
-Make Changes: Make changes to the project, whether it's fixing bugs, adding new features, improving documentation, or enhancing existing functionality.
-
-Submit Pull Requests: Once you've made your changes, submit a pull request to merge your changes into the main repository. Provide a clear description of your changes and why they are beneficial.
-
-Code Review: Your pull requests will be reviewed by project maintainers. They may request further changes or provide feedback to ensure the quality and compatibility of your contributions.
-
-Bug Reports: If you encounter any bugs or issues while using Food & Wellness Synergy, please submit a detailed bug report. Include steps to reproduce the issue and any relevant information that may help diagnose and fix the problem.
-
-Feature Requests: If you have ideas for new features or improvements, please submit a feature request. Describe the proposed feature and its potential benefits to the project.
-
-Contributors are encouraged to focus on improving the user interface (UI) designs, HTML, CSS, and JavaScript (JS) code, or adding new functionalities related to JavaScript. Your contributions will help enhance the overall usability and functionality of Food & Wellness Synergy.
 
 ## Team Members
 1- Aditya panwar ( created Machine Learning Model, managing flask )  [GitHub](https://github.com/BANZOM?tab=overview&from=2024-03-01&to=2024-03-03)
