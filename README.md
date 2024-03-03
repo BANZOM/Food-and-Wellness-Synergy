@@ -46,12 +46,6 @@ Explain how to use your project here. Include any configuration settings, comman
 ## Dependencies
 List the dependencies required to run your project. You can include a `requirements.txt` file with the project, or specify them directly in the README.
 
-## Configuration
-users may need to set before running the app.
-```bash
-pip install Flask
-```
-
 ## Contributing
 Thank you for considering contributing to Food & Wellness Synergy! Contributions are welcomed and encouraged. You can contribute to the project in the following ways:
 
