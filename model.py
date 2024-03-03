@@ -11,8 +11,8 @@ load_dotenv()
 
 genai.configure(api_key=os.getenv('API_KEY'))
 
-for model in genai.list_models():
-    print(model)
+# for model in genai.list_models():
+#     print(model)
 
 model = genai.GenerativeModel('models/gemini-1.0-pro-latest')
 
@@ -57,10 +57,19 @@ def get_recipe_from_image(image):
     image = Image.open(image)
     bytearray = io.BytesIO()
     image.save(bytearray, format=image.format)
-    response = model.generate_content(image, generation_config=get_generation_config())
+    bytearray = bytearray.getvalue()
+    encoded_image = base64.b64encode(bytearray)
+
+    image_blob = {
+        'mime_type': 'image/jpeg', # or 'image/png'
+        'data': encoded_image.decode('utf-8')
+    }
+
+    response = model.generate_content({'inline_data': image_blob}, generation_config=get_generation_config())
     return response.text
 
 if __name__ == '__main__':
     item = 'milk,apple'
     # print(get_recipe(item))
+    print(get_recipe_from_image('/home/aditya/Pictures/jenkins.jpeg'))
     pass
