@@ -64,12 +64,12 @@ def get_recipe_from_image(image):
         'mime_type': 'image/jpeg', # or 'image/png'
         'data': encoded_image.decode('utf-8')
     }
-
-    response = model.generate_content({'inline_data': image_blob}, generation_config=get_generation_config())
+    prompt = custom_prompt('the given items in the image')
+    response = model.generate_content([prompt, {'inline_data': image_blob}], generation_config=get_generation_config())
     return response.text
 
 if __name__ == '__main__':
     item = 'milk,apple'
     # print(get_recipe(item))
-    print(get_recipe_from_image('/home/aditya/Pictures/jenkins.jpeg'))
+    print(get_recipe_from_image('templates/dump/images/kurkure&biscuit.png'))
     pass
