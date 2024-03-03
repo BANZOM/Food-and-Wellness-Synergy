@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask AJAX Form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Input Form</h1>
+    <form id="inputForm">
+        <label for="input_text">Enter Text:</label>
+        <input type="text" id="input_text" name="input_text">
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Processed Text</h2>
+    <div id="processed_text"></div>
+
+    <script>
+        $(document).ready(function(){
+            $('#inputForm').submit(function(event){
+                event.preventDefault();  // Prevent default form submission
+
+                var formData = $(this).serialize();  // Serialize form data
+                $.ajax({
+                    url: 'http://10.86.28.53:5002/get_recipe_from_text',
+                    type: 'POST',
+                    data: formData,
+                    success: function(response) {
+                        $('#processed_text').text(response.processed_text);
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

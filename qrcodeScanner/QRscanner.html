@@ -7,31 +7,23 @@
   <title>QR Code Scanner</title>
 
   <script src="./node_modules/html5-qrcode/html5-qrcode.min.js"></script>
-  <style>
-    main {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    #reader {
-      width: 600px;
-    }
-
-    #result {
-      text-align: center;
-      font-size: 1.5rem;
-    }
-  </style>
+  <link rel="stylesheet" href="qrstyle.css">
 </head>
 
 <body>
-  <main>
+  <main class="container">
     <div id="reader"></div>
     <div id="result"></div>
   </main>
 
+  <div class="container">
+    <ul id="shopping-list">
+    </ul>
+    <button id="submit-button" type="submit" style="display: block; width: 100%;">Submit</button>
+    <textarea id="text-area" rows="10" cols="50" readonly></textarea>
+  </div>
 
+  <div id="processed" class="container"></div>
   <script>
 
     // console.log(Html5QrcodeScanner);
@@ -55,19 +47,38 @@
         <p><a href="${result}">${result}</a></p>
         `;
       // Prints result as a link inside result element
-
+      console.log(result);
       scanner.clear();
       // Clears scanning instance
 
       document.getElementById('reader').remove();
       // Removes reader element from DOM since no longer needed
-
+      // return result;
     }
 
     function error(err) {
       console.error(err);
       // Prints any errors to the console
     }
+
+    $(document).ready(function () {
+      $('#inputForm').submit(function (event) {
+        event.preventDefault();  // Prevent default form submission
+
+        var formData = $(this).serialize();  // Serialize form data
+        $.ajax({
+          url: 'http://localhost:5002/get_recipe_from_text',
+          type: 'POST',
+          data: formData,
+          success: function (response) {
+            $('#processed_text').text(response.processed_text);
+          },
+          error: function (error) {
+            console.log(error);
+          }
+        });
+      });
+    });
 
   </script>
 </body>
