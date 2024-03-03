@@ -15,6 +15,10 @@ def index():
 #     print('Received items:', items)
 #     return jsonify({'items': items})
 
+@app.route('/submit/form')
+def form():
+    return render_template('form.html')
+
 
 @app.route("/page1")
 def page1():

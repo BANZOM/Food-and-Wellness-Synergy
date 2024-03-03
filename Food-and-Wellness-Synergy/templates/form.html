@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/style1.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2&display=swap" rel="stylesheet">
+  <title>Enter Your Health Details</title>
+  <style>
+    .leftbox {
+      background-image: url("../static/image/abstract-blue-light-pipe-speed-zoom-black-background-technology_1142-9722.avif");
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+
+    <div class="leftbox">
+    
+      <div class="rotatebox" id="box1"></div>
+      <div class="rotatebox" id="box2" ></div>
+      <div class="rotatebox" id="box3"></div>
+      <div class="rotatebox" id="box4"></div>
+      <div class="rotatebox" id="box5"></div>
+      <div class="rotatebox" id="box6"></div>
+      <div class="rotatebox" id="box7"></div>
+
+
+      <div class="mainheading">
+        <center>
+        <h1>Enter Your Health Details</h1>
+      </center>
+      </div>
+
+
+      <div class="mainpara">
+        <p>Please ensure that the details you provide should be <br> <b>Accurate</b> so that our <b>ML Model</b> can analyse your data correctly </p>
+      </div>
+
+
+      <div class="list">
+        <ul>
+          <li>"True health is not merely the absence of disease, but a state of complete physical, mental and social well-being." - World Health Organization (WHO)</li>
+          <br>
+          <li>"The mind and body are not separate. They are one. What affects one affects the other." - John F. Kennedy</li>
+          
+          <br>
+          <li>"Take care of your body. It's the only place you have to live." - Jim Rohn</li>
+          
+          <br>
+          <li>"Health is the greatest gift, contentment the greatest wealth, faithfulness the best relationship." - Buddha</li>
+          
+          <br>
+          <li>"Wellbeing is a state of being comfortable, healthy, and happy." - Merriam-Webster Dictionary</li>
+          <br>
+        </ul>
+      </div>
+
+
+    </div>
+
+
+
+
+    <div class="rightbox">
+      <br>
+      <br>
+      <br>
+      <div class="lowerPart">
+        <form class="form" action="/submit/form">
+         <input type="text" placeholder="Name" class="button">
+         <input type="number" placeholder="age" class="button">
+         <select name="" id="option" class="button">
+         <option value="" disabled selected>Gender</option>
+         <option value="">Male</option>
+         <option value="">Female</option>
+         <option value="">Pefer Not to say</option>
+        </select>
+        <input type="email" name="" id="" placeholder="Mail ID" class="button">
+        <input type="number" name="" id="" placeholder="Mobile no." class="button">
+        <select name="" id="location" class="button">
+          <option value="" disabled selected >Location</option>
+          <option value="">Common Cold</option>
+          <option value="">Influenza(flu)</option>
+          <option value="">Diarrheal diseases</option>
+          <option value="">Lower respiratory infections</option>
+          <option value="">Neonatal conditions</option>
+          <option value="">Trachea, bronchus, and lung cancers</option>
+          <option value="">Ischemic heart disease</option>
+          <option value="">Stroke</option>
+          <option value="">Chronic obstructive pulmonary disease (COPD)</option>
+          <option value="">Alzheimer's disease and other dementias</option>
+          <option value="">Depression</option>
+          <option value="">Anxiety disorderss</option>
+          <option value="">Diabetes mellitus</option>
+          <option value="">Urinary tract infections (UTIs)</option>
+          <option value="">Others</option>
+        </select>
+        <input type="text" placeholder="Your biggest health suffering issue" class="button">
+        <input type="number" name="" id="" placeholder="How active  are you in term of your healthcare?(1-10)" class="button">
+        <button id="lastbutton">Submit</button>
+   
+
+        </form>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>
