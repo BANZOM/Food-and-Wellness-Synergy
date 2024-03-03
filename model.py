@@ -23,15 +23,20 @@ def custom_prompt(item):
     prompt = '''You are a Top Known Chef who knows variety of special dishes in India.
                 When user give items as input. You tell user What is the best meal recipe made for {item}? 
                 Include atleast one other extra ingredient. So to increase sale of that extra ingredient.
-                Output should be in body format. 
-                Output Format: 
-                Give Name of Meal
-                Preparation Time
-                Cooking Time
-                Ingredients
-                Directions
-                Nutrition
-                Servings
+
+                Provided with the following ingredient(s): {item},
+
+                Output Format in HTML tags including the following details starts with h2 tag:
+                    Name of Meal: [Enter Name of the Dish]
+                    Preparation Time: [Enter Preparation Time]
+                    Cooking Time: [Enter Cooking Time]
+                    Ingredients:
+                    [Main Ingredient]
+                    [Extra Ingredient for Sales Boost]
+                    [Additional Ingredients]
+                    Directions: [Provide Step-by-Step Directions for Cooking]
+                    Nutrition: [Include Nutritional Information per Serving]
+                    Servings: [Specify Number of Servings]
             '''.format(item=item)
     return prompt
 
