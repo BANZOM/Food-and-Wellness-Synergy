@@ -1,7 +1,6 @@
 import google.generativeai as genai
 import os
 from dotenv import load_dotenv
-
 import io
 import base64
 from PIL import Image
@@ -13,8 +12,6 @@ genai.configure(api_key=os.getenv('API_KEY'))
 
 # for model in genai.list_models():
 #     print(model)
-
-model = genai.GenerativeModel('models/gemini-1.0-pro-latest')
 
 def get_model(type='text'):
     if type == 'text':
