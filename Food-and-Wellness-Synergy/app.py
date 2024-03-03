@@ -7,15 +7,6 @@ app = Flask(__name__, static_folder='static')
 def index():
     return render_template('index.html')
 
-# @app.route('/save_items', methods=['GET','POST'])
-
-# @app.route('/get_items', methods=['GET'])
-# def get_items():
-#     items = json.loads(request.args.get('items'))  # Retrieve items from query parameters
-#     print('Received items:', items)
-#     return jsonify({'items': items})
-
-
 @app.route("/page1")
 def page1():
     return render_template('page1.html')

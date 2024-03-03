@@ -1,15 +1,140 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>My Site</title>
-  </head>
-  <body>
-    <h1>Welcome to my site</h1>
-    <p>Here's a list of things you can do:</p>
-    <a href="/process_text">text</a>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Food and Wellness Synergy </title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="header">
+    <h1>Food and Wellbeing Synergy</h1>
+    <ul>
+      <li><a href="#">Signup</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">Pricing</a></li>
+      <li><a href="#">Support</a></li>
+    </ul>
+  </div>
+  
+  <section class="hero">
+    <div class="container">
+      <h2 style="
+      background: -webkit-linear-gradient(#eee, #27f127);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; font-weight: lighter; font-size: 6rem;
+    letter-spacing: -.02em;
+    line-height: 6rem;">Add Products</h2>
     <br>
-    <a href="/process_qr">QR</a>
-    <br>
-    <a href="/process_image">image</a>
-  </body>
+      <h3>Get Healthy and nourished food suggestion</h3>
+      <br>
+      <h1 style="background: -webkit-linear-gradient(#eee, #a90df0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; font-weight: lighter; font-size: 6rem;
+    letter-spacing: -.02em;
+    line-height: 6rem;">No More Searching</h1>
+      <p style="margin-left: 80px;">Get everything in one place</p>
+      <p style="margin-left: 70px; font-weight: bold; background: -webkit-linear-gradient(#eee, #e5fa05);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent ; font-size: 2.5rem;
+    letter-spacing: -.02em"> suggestions you step by step to make the best dish according to your health status</p>
+      <button class="button"><a href="../template/Form/index.html" >Enter Your Details</a></button>
+    </div>
+  </section>
+
+
+
+<div class="Main"></div>
+  <section class="layout">
+   
+
+    <!-- first section  -->
+   
+   
+    <div class="sections" style="display: flex; flex-direction: row;  justify-content: space-around;">
+      <div  class="left"> 
+        <h2>Add Products Get The Prefect Dish</h2>
+        <p>
+          <ol id="list">
+            <li>
+              Add  the product you want to add 
+            </li>
+            <li>
+              Wait for the ML Modern to  give a recommendation based on your input.
+            </li>
+            <li>
+              ML model will suggest you  a dish that is best  for your current health status . 
+            </li>
+          </ol>
+        </p>
+        <button class="buttonfunction"><a href="/page1" target="_blank">try it now</a></button>
+      </div>
+      <img src="../static/image/img1.jpg" class="right" alt="">
+    </i></div>
+   
+  </section>
+
+  <!-- second section  -->
+   
+    <div class="sections" style="display: flex; flex-direction: row-reverse;  justify-content: space-around;">
+      <div  class="left"> 
+        <h2>Scan Product get dish recommendation</h2>
+        <p>
+          <ol id="list">
+            <li>
+              Scan the QR of the Products 
+            </li>
+            <li>
+              Wait for the ML Modern to  give a recommendation based on your input.
+            </li>
+            <li>
+              ML model will suggest you  a dish that is best  for your current health status . 
+            </li>
+          </ol>
+        </p>
+        <button class="buttonfunction"><a href="/page2" target="_blank">try it now</a></button>
+      </div>
+      <img src="../static/image/img4.png" class="right" alt="">
+    </i></div>
+   
+  </section>
+
+  <!-- third section  -->
+   
+    <div class="sections" style="display: flex; flex-direction: row;  justify-content: space-around;">
+      <div  class="left"> 
+        <h2>Add Products Get Recommanded </h2>
+        <p>
+          <ol id="list">
+            <li>
+              Add  the product you want to add 
+            </li>
+            <li>
+              Wait for the ML Modern to  give a recommendation based on your input.
+            </li>
+            <li>
+              ML model will suggest you  a dish that is best  for your current health status . 
+            </li>
+          </ol>
+        </p>
+        <button class="buttonfunction"><a href="/page3" target="_blank">try it now</a></button>
+      </div>
+      <img src="../static/image/eye-tracking-technology-abstract-concept-illustration_335657-3697.avif" class="right" alt="">
+      <!-- <img src="../template/image/eye-tracking-technology-abstract-concept-illustration_335657-3697.avif" class="right" alt=""> -->
+    </i></div>
+   
+  </section>
+
+
+   
+
+
+  
+  <footer>
+    <center>
+    <p>All Right Reserved @2023</p>
+  </center>
+  </footer>
+</body>
 </html>

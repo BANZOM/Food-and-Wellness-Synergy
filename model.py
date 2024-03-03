@@ -44,6 +44,7 @@ def get_generation_config():
 def get_recipe(item):
     print("function triggered")
     prompt = custom_prompt(item)
+    model = get_model(type='text')
     response = model.generate_content(prompt, generation_config=get_generation_config())
     print(response.text)
     return response.text
